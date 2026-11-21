@@ -1,0 +1,101 @@
+# Only the analysis-script project may be uploaded.
+# NCKUH paper-1 enrolment data, the paper, and the manuscript build scripts must never be uploaded.
+# Allow-list: ignore everything, then re-include code files only.
+
+/*
+!/.gitignore
+!/README.md
+!/05_code/
+!/organize_project_layout.ps1
+!/clean_hidden_layout.ps1
+
+# Inside 05_code, keep code files only
+/05_code/**
+!/05_code/**/
+!/05_code/**/*.py
+!/05_code/**/*.ps1
+!/05_code/**/*.mjs
+/05_code/**/__pycache__/
+/05_code/**/.pytest_cache/
+
+# Manuscript build scripts (they contain the paper text)
+/05_code/root_files/build_nckuh_dmsa_manuscript_20261108.py
+/05_code/root_files/format_nckuh_bmc_20261108.py
+/05_code/root_files/nckuh_template_structure_20261114.py
+/05_code/root_files/build_nckuh_paper2_manuscript_20261115.py
+/05_code/root_files/add_nckuh_convex_finetune_to_manuscript_20261112.py
+/05_code/root_files/clarify_nckuh_probe_workflows_manuscript_20261112.py
+/05_code/root_files/reframe_nckuh_probe_two_designs_manuscript_20261112.py
+/05_code/root_files/update_nckuh_manuscript_probe_routing_20261112.py
+/05_code/root_files/restyle_nckuh_variant_20261114.py
+/05_code/root_files/nckuh_manuscript_figures_20261108.py
+
+# CYCH manuscript build, edit, audit and packaging scripts (they contain or rewrite the paper text)
+/05_code/fix_bmc_line_numbers_20261004.py
+/05_code/package_label_clarification_20261003.py
+/05_code/update_author_list_20261003.py
+/05_code/update_correspondence_20261003.py
+/05_code/update_label_clarification_20261003.py
+/05_code/root_files/build_cych_random_v2.py
+/05_code/root_files/build_cych_supplementary_model_comparison.py
+/05_code/root_files/finalize_cych_word.ps1
+/05_code/root_files/prepare_cych_bmc_submission.py
+/05_code/root_files/audit_cych_bmc_submission.py
+/05_code/root_files/audit_cych_submission_documents.py
+/05_code/root_files/package_cych_random_v2.py
+/05_code/root_files/update_cych_ci_manuscripts_20261005.py
+/05_code/root_files/update_cych_cohort_confirmation.py
+/05_code/root_files/update_cych_development_results.py
+/05_code/root_files/update_cych_manuscript_segmentation_20261004.py
+/05_code/root_files/update_cych_paper_graph_mil.py
+/05_code/root_files/update_cych_paper_journal_ready.py
+/05_code/root_files/update_cych_paper_v2.py
+
+# Figure scripts (NCKUH and CYCH paper figures, explainability panels, exploratory plots)
+/05_code/root_files/nckuh_paper2_figure1_20261115.py
+/05_code/root_files/nckuh_paper2_figure2_20261115.py
+/05_code/root_files/nckuh_study_assets_20261102.py
+/05_code/root_files/nckuh_dmsa_final_fusion_occlusion_20261109.py
+/05_code/root_files/nckuh_dmsa_uricads_gradcam_20261108.py
+/05_code/root_files/nckuh_dmsa_uricads_interior_occlusion_20261108.py
+/05_code/root_files/p2_24_occlusion_convex255.py
+/05_code/root_files/p2_25_gradcam_interior.py
+/05_code/root_files/p2_26_occlusion_figure.py
+/05_code/root_files/analyze_locked_exploratory_test_comparison.py
+/05_code/root_files/generate_pipeline_figure.py
+/05_code/root_files/make_final_development_performance_figure.py
+/05_code/root_files/make_journal_ablation_and_evidence_figures.py
+/05_code/root_files/make_reliable_negative_graph_mil_figures.py
+/05_code/root_files/prepare_segmentation_finetune_figures.py
+/05_code/root_files/report_cych_feature_experiments.py
+/05_code/root_files/report_cych_triplet_probe.py
+/05_code/root_files/report_renal_local_features.py
+/05_code/root_files/extract_and_plot_densenet201_features2.py
+/05_code/root_files/extract_features_and_plot.py
+
+# Safety net: data and paper file types anywhere
+*.xlsx
+*.xls
+*.csv
+*.docx
+*.pdf
+*.zip
+*.tif
+*.tiff
+*.png
+*.jpg
+*.jpeg
+*.dcm
+*.nii
+*.nii.gz
+*.npy
+*.npz
+*.pt
+*.pth
+*.pkl
+*.json
+
+# Depend on excluded figure scripts
+/05_code/root_files/p2_22_gradcam_convex255.py
+/05_code/root_files/test_cych_feature_probes.py
+/05_code/root_files/test_renal_triplet_probe.py

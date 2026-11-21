@@ -1,0 +1,19 @@
+import numpy as np
+
+from nckuh_dmsa_tinyusfm_frozen import summarize_tokens
+
+
+def test_tinyusfm_roi_summary_uses_mask_covered_tokens():
+    tokens = np.zeros((1, 197, 192), np.float32)
+    tokens[0, 1, :] = 2
+    tokens[0, 2, :] = 4
+    mask = np.zeros((1, 224, 224), np.float32)
+    mask[0, :16, :32] = 1
+
+    gap, roi, counts = summarize_tokens(tokens, mask)
+
+    assert gap.shape == (1, 192)
+    assert roi.shape == (1, 384)
+    assert counts.tolist() == [2]
+    np.testing.assert_allclose(roi[0, :192], 3)
+    np.testing.assert_allclose(roi[0, 192:], 1)
